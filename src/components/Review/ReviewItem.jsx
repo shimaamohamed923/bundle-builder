@@ -39,11 +39,13 @@ export default function ReviewItem({ product }) {
                   />
                 )}
               </div>
+              <div className="flex w-1/5 justify-end">
+                <Price
+                  price={getProductPrice(product)}
+                  compareAt={getProductCompareAt(product)}
+                />
+              </div>
             </div>
-            <Price
-              price={getProductPrice(product)}
-              compareAt={getProductCompareAt(product)}
-            />
           </div>
         ))}
     </>

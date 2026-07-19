@@ -4,7 +4,11 @@ A React application for building a custom home security bundle.
 
 ## Live Demo
 
-🔗 https://your-project.vercel.app
+🔗 https://bundle-builder-rouge.vercel.app/
+
+## Repository
+
+🔗 https://github.com/shimaamohamed923/bundle-builder
 
 ## Tech Stack
 
@@ -15,6 +19,23 @@ A React application for building a custom home security bundle.
 - Vite
 
 ## Getting Started
+
+### Requirements
+
+- Node.js 20+ (tested with Node.js v22.14.0)
+- npm
+
+### Clone the repository
+
+```bash
+git clone https://github.com/shimaamohamed923/bundle-builder.git
+```
+
+### Navigate to the project
+
+```bash
+cd bundle-builder
+```
 
 ### Install dependencies
 
@@ -40,25 +61,19 @@ http://localhost:5173
 npm run build
 ```
 
-### Preview the production build
-
-```bash
-npm run preview
-```
-
 ## Features
 
-- Data-driven UI from a JSON source
-- Multi-step bundle builder
-- Product variant selection
-- Quantity management per variant
-- Live review panel
-- Save configuration to Local Storage
-- Responsive layout
+- Data-driven UI from a local JSON file.
+- Multi-step bundle builder.
+- Product variant selection.
+- Quantity management per variant.
+- Live review panel.
+- Save configuration using Local Storage.
+- Responsive layout for desktop and mobile devices.
 
 ## Project Structure
 
-```
+```text
 src/
 ├── components/
 ├── store/
@@ -71,19 +86,20 @@ src/
 ## Decisions
 
 - Used Redux Toolkit for centralized state management.
-- Stored quantity per product variant to preserve quantities independently when switching between variants.
-- Extracted business logic into utility functions to keep components focused on rendering.
-- Loaded product data from a JSON source.
-- Restored saved configurations from Local Storage.
+- Stored quantity per product variant so each variant preserves its own quantity when switching between options.
+- Extracted business logic (selection, quantity, pricing, etc.) into utility functions to keep components focused on rendering.
+- Product data is loaded from a local JSON file.
+- Saved configurations are restored from Local Storage after using the **Save for later** feature.
 
 ## Tradeoffs
 
-- Local Storage is used instead of a backend for persistence.
-- The project focuses on the required functionality without additional animations.
+- Local Storage is used for persistence instead of a backend service.
+- The project focuses on the required functionality and clean architecture rather than additional UI animations.
 
 ## Future Improvements
 
-- Add unit tests.
+- Add automated unit tests.
 - Improve accessibility.
-- Add accordion animations.
-- Optimize rendering for larger datasets.
+- Add smooth accordion animations.
+- Optimize rendering for larger product catalogs.
+- Integrate a backend API instead of using a local JSON file.
