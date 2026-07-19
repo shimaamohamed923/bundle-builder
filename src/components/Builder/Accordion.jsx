@@ -6,11 +6,12 @@ export default function Accordion({ steps, products }) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1280) {
-        setOpenStep((prev) => prev ?? 1);
-      } else {
-        setOpenStep(null);
-      }
+      const isDesktop = window.innerWidth >= 1280;
+
+      setOpenStep((prev) => {
+        if (isDesktop && prev === null) return 1;
+        return prev;
+      });
     };
 
     handleResize();
