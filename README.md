@@ -25,7 +25,19 @@ A React application for building a custom home security bundle.
 - Node.js 20+ (tested with Node.js v22.14.0)
 - npm
 
-### Installation
+### Clone the repository
+
+```bash
+git clone https://github.com/shimaamohamed923/bundle-builder.git
+```
+
+### Navigate to the project
+
+```bash
+cd bundle-builder
+```
+
+### Install dependencies
 
 ```bash
 npm install
@@ -47,12 +59,6 @@ http://localhost:5173
 
 ```bash
 npm run build
-```
-
-### Preview the production build
-
-```bash
-npm run preview
 ```
 
 ## Features

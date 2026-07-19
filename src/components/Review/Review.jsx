@@ -15,10 +15,12 @@ export default function Review({
       <div>
         <div className="flex items-center justify-between gap-2">
           <img src={BadgeCheckIcon} size={20} className="text-indigo-700" />
-          <span className="flex flex-col">
-            <span className="h-5 rounded bg-purple-c px-1.5 text-center text-xs leading-5 font-medium text-white">
-              as low as $19/mo
-            </span>
+          <div className="flex flex-col">
+            <div className="flex justify-end">
+              <span className="h-5 rounded bg-purple-c px-2 text-center text-xs leading-5 font-medium text-white">
+                as low as $19/mo
+              </span>
+            </div>
             <div className="mt-2 flex-1 text-[11px] leading-3 text-slate-600">
               <div className="text-right">
                 <span className="mr-1 text-sm text-slate-400 line-through">
@@ -29,7 +31,7 @@ export default function Review({
                 </strong>
               </div>
             </div>
-          </span>
+          </div>
         </div>
         <p className="mt-2.5 mb-1 text-center text-[12px] font-medium text-[#0AA288]">
           Congrats! You're saving ${savings.toFixed(2)} on your security bundle!
