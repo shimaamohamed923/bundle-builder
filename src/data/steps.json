@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Choose your cameras",
+    "icon": "camera",
+    "category": "cameras",
+    "nextStep": 2
+  },
+  {
+    "id": 2,
+    "title": "Choose your plan",
+    "icon": "plan",
+    "category": "plan",
+    "nextStep": 3
+  },
+  {
+    "id": 3,
+    "title": "Choose your sensors",
+    "icon": "sensor",
+    "category": "sensors",
+    "nextStep": 4
+  },
+  {
+    "id": 4,
+    "title": "Add extra protection",
+    "icon": "shield",
+    "category": "accessories",
+    "nextStep": null
+  }
+]

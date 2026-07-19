@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: "Gilroy", sans-serif;
+  --text-2xs: 10px;
+  --text-22: 22px;
+  --color-black-c-900: #1f1f1f;
+  --color-gray-c-400: #cccccc;
+  --color-gray-c-500: #484848;
+  --color-gray-c-700: #f0f4f7;
+  --color-gray-c-800: #575757;
+  --color-gray-c-900: #0b0d10;
+  --color-blue-c: #0000ee;
+  --color-purple-c: #4e2fd2;
+  --color-red-c: #d8392b;
+  --color-green-c-500: #0aa288;
+  --color-green-c-200: #1df0bb;
+}
+button {
+  cursor: pointer;
+}
+aside .step-btn {
+  background: #fff;
+}
+aside .price {
+  color: var(--color-purple-c);
+  font-family: "Gilroy";
+  font-weight: 500;
+}
+aside .compare-price {
+  color: #6f7882;
+  font-family: "Gilroy";
+  font-weight: 500;
+}
