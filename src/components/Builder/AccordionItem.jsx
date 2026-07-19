@@ -58,7 +58,7 @@ export default function AccordionItem({
               return (
                 <article
                   key={product.id}
-                  className={`relative max-w-[360px] rounded-[10px] border-2 bg-white p-3 transition ${isLastOdd ? " xl:col-span-2 xl:justify-self-center" : ""} ${isProductSelected(product) ? "border-purple-c/70" : "border-transparent"}`}
+                  className={`relative max-w-[360px] rounded-[10px] border-2 bg-white p-3 transition duration-200 hover:-translate-y-1 hover:shadow-lg ${isLastOdd ? " xl:col-span-2 xl:justify-self-center" : ""} ${isProductSelected(product) ? "border-purple-c/70 " : "border-transparent"}`}
                 >
                   <ProductCard product={product} />
                 </article>
