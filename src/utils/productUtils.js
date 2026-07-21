@@ -1,12 +1,3 @@
-// export const getSelectedCount = (products) => {
-//   return products.reduce((count, product) => {
-//     const isSelected = product.variants
-//       ? product.variants.some((variant) => variant.quantity > 0)
-//       : product.quantity > 0;
-
-//     return isSelected ? count + 1 : count;
-//   }, 0);
-// };
 export const isProductSelected = (product) => {
   return product.variants
     ? product.variants.some((variant) => variant.quantity > 0)
