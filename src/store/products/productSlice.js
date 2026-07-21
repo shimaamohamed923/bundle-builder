@@ -24,15 +24,6 @@ const productsSlice = createSlice({
       product.selectedVariant = variantId;
     },
     increaseQuantity(state, action) {
-      // const product = state.products.find(
-      //   (p) => p.id === action.payload.productId,
-      // );
-
-      // const variant = product.variants.find(
-      //   (v) => v.id === product.selectedVariant,
-      // );
-
-      // variant.quantity += 1;
       const { productId, variantId } = action.payload;
 
       const product = state.products.find((p) => p.id === productId);
