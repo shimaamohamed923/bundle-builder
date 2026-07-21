@@ -43,13 +43,6 @@ const productsSlice = createSlice({
         variant.quantity -= 1;
       }
     },
-    toggleSelected(state, action) {
-      const product = state.products.find((item) => item.id === action.payload);
-
-      if (product) {
-        product.selected = !product.selected;
-      }
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(getProducts.pending, (state) => {
@@ -67,11 +60,7 @@ const productsSlice = createSlice({
 });
 
 // Export
-export const {
-  changeVariant,
-  increaseQuantity,
-  decreaseQuantity,
-  toggleSelected,
-} = productsSlice.actions; // al createslice by3ml create action l kol reducer automatic
+export const { changeVariant, increaseQuantity, decreaseQuantity } =
+  productsSlice.actions; // al createslice by3ml create action l kol reducer automatic
 
 export default productsSlice.reducer; // kol slice byrg3 reducer function to update state
