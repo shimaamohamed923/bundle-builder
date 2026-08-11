@@ -1,3 +1,10 @@
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
+export const formatCurrency = (amount) => currencyFormatter.format(amount);
+
 export const isProductSelected = (product) => {
   return product.variants
     ? product.variants.some((variant) => variant.quantity > 0)

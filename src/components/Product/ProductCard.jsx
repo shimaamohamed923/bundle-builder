@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import QuantityStepper from "./QuantityStepper";
 import Price from "./Price";
 import VariantSelector from "./VariantSelector";
@@ -7,6 +6,7 @@ export default function ProductCard({ product }) {
   const activeVariant = product.variants?.find(
     (variant) => variant.id === product.selectedVariant,
   );
+
   return (
     <>
       {product.badge && (
@@ -32,16 +32,13 @@ export default function ProductCard({ product }) {
             </button>
           </div>
           {product.variants?.length > 1 && (
-            <VariantSelector
-              product={product}
-              activeVariant={activeVariant}
-            ></VariantSelector>
+            <VariantSelector product={product} activeVariant={activeVariant} />
           )}
           <div className="mt-auto flex items-center justify-between">
-            {product.category !== "plan" && (
+            {product.category !== "plan" && activeVariant && (
               <QuantityStepper
                 label={product.selectedVariant}
-                quantity={activeVariant?.quantity}
+                quantity={activeVariant.quantity}
                 productId={product.id}
                 variantId={activeVariant.id}
               />
