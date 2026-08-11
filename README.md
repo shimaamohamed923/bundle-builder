@@ -103,7 +103,8 @@ src/
 
 - Local Storage is used for persistence instead of a backend service.
 - The project focuses on the required functionality and clean architecture rather than additional UI animations.
-Refactoring
+
+## Refactoring
 
 The project was refactored with the assistance of AI to improve code quality, maintainability, and component structure.
 
