@@ -110,13 +110,13 @@ The project was refactored with the assistance of AI to improve code quality, ma
 
 The refactoring included:
 
-Extracting reusable Redux selectors for derived state and calculations.
-Reducing prop drilling across product-related components.
-Creating a reusable useProductActions custom hook for Redux dispatch logic.
-Removing duplicated and unused code.
-Improving shared utility functions such as currency formatting.
-Fixing React rendering and safety issues, including duplicate keys and missing variant guards.
-Preserving the existing application behavior while improving the overall code structure.
+- Extracting reusable Redux selectors for derived state and calculations.
+- Reducing prop drilling across product-related components.
+- Creating a reusable useProductActions custom hook for Redux dispatch logic.
+- Removing duplicated and unused code.
+- Improving shared utility functions such as currency formatting.
+- Fixing React rendering and safety issues, including duplicate keys and missing variant guards.
+- Preserving the existing application behavior while improving the overall code structure.
 
 All refactoring changes were reviewed and validated to ensure they integrate correctly with the existing application.
 
