@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
 import QuantityStepper from "../Product/QuantityStepper";
 import Price from "../Product/Price";
-import { getProductCompareAt, getProductPrice } from "../../utils/productUtils";
+import {
+  getProductCompareAt,
+  getProductPrice,
+} from "../../utils/productUtils";
 
 export default function ReviewItem({ product }) {
   return (
@@ -10,7 +12,7 @@ export default function ReviewItem({ product }) {
         ?.filter((variant) => variant.quantity > 0)
         .map((variant) => (
           <div
-            key={product.id}
+            key={`${product.id}-${variant.id}`}
             className="flex items-center justify-between gap-4"
           >
             <div className="flex w-full items-center">
@@ -24,10 +26,8 @@ export default function ReviewItem({ product }) {
               <div className="flex flex-1 items-center justify-between">
                 <p className="flex flex-col px-3 leading-3 font-medium text-gray-c-900">
                   <span className="text-[14px]">{product.name}</span>
-                  {variant.id !== "default" ? (
+                  {variant.id !== "default" && (
                     <span className="mt-1 text-xs">{variant.label}</span>
-                  ) : (
-                    ""
                   )}
                 </p>
                 {product.category !== "plan" && (

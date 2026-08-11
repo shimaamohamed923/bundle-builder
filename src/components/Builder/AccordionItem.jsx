@@ -1,32 +1,45 @@
-import { useEffect, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
 import { icons } from "../Icons/StepsIcons";
 import ProductCard from "../Product/ProductCard";
-import { getProducts } from "../../store/products/productSlice";
 import { ChevronDownIcon, ChevronUpIcon } from "../Icons/UiIcons";
 import { getSelectedCount, isProductSelected } from "../../utils/productUtils";
+import { selectProductsByCategory } from "../../store/products/productSelectors";
+
+function getCardClassName(product, index, total) {
+  const isLastOdd = total % 2 !== 0 && index === total - 1;
+  return [
+    "relative max-w-[360px] rounded-[10px] border-2 bg-white p-3 transition duration-200 hover:-translate-y-1 hover:shadow-lg",
+    isLastOdd && "xl:col-span-2 xl:justify-self-center",
+    isProductSelected(product) ? "border-purple-c/70" : "border-transparent",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
 
 export default function AccordionItem({
   step,
   isOpen,
   onToggle,
-  products,
   onNext,
   nextLabel,
+  stepNumber,
+  totalSteps,
 }) {
-  const stepProducts = useMemo(() => {
-    return products.filter((product) => product.category === step.category);
-  }, [products]);
-
+  const selectStepProducts = useMemo(
+    () => selectProductsByCategory(step.category),
+    [step.category],
+  );
+  const stepProducts = useSelector(selectStepProducts);
   const selectedCount = getSelectedCount(stepProducts);
 
   return (
     <div
       className={`border-[#1F1F1F] pb-5 ${isOpen ? "rounded-md border-0 bg-[#edf4ff]" : "border-b-[.5px] bg-white"}`}
     >
-      <div className={`flex border-b-[.5px] border-[#1F1F1F] px-4 pt-4 pb-1`}>
+      <div className="flex border-b-[.5px] border-[#1F1F1F] px-4 pt-4 pb-1">
         <span className="text-2xs leading-2.5 font-medium tracking-[1.6px] text-gray-c-500 uppercase md:text-2xs">
-          step {step.id} of 4
+          step {stepNumber} of {totalSteps}
         </span>
       </div>
       <button
@@ -51,34 +64,31 @@ export default function AccordionItem({
       {isOpen && (
         <div className="flex w-full flex-wrap px-4 pt-5">
           <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-2">
-            {stepProducts.map((product, index) => {
-              const isLastOdd =
-                stepProducts.length % 2 !== 0 &&
-                index === stepProducts.length - 1;
-              return (
-                <article
-                  key={product.id}
-                  className={`relative max-w-[360px] rounded-[10px] border-2 bg-white p-3 transition duration-200 hover:-translate-y-1 hover:shadow-lg ${isLastOdd ? " xl:col-span-2 xl:justify-self-center" : ""} ${isProductSelected(product) ? "border-purple-c/70 " : "border-transparent"}`}
-                >
-                  <ProductCard product={product} />
-                </article>
-              );
-            })}
+            {stepProducts.map((product, index) => (
+              <article
+                key={product.id}
+                className={getCardClassName(
+                  product,
+                  index,
+                  stepProducts.length,
+                )}
+              >
+                <ProductCard product={product} />
+              </article>
+            ))}
           </div>
         </div>
       )}
 
-      {isOpen && (
+      {isOpen && nextLabel && (
         <div className="flex justify-center pt-3">
-          {nextLabel && (
-            <button
-              type="button"
-              onClick={onNext}
-              className="h-10 rounded-md border border-purple-c px-6 text-lg font-semibold text-purple-c transition hover:bg-indigo-50 focus:ring-2 focus:ring-purple-c focus:outline-none"
-            >
-              Next:{nextLabel}
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={onNext}
+            className="h-10 rounded-md border border-purple-c px-6 text-lg font-semibold text-purple-c transition hover:bg-indigo-50 focus:ring-2 focus:ring-purple-c focus:outline-none"
+          >
+            Next:{nextLabel}
+          </button>
         </div>
       )}
     </div>

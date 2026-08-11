@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import steps from "../../data/steps.json";
 import Accordion from "./Accordion";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import ReviewPanel from "../Review/ReviewPanel";
-
 import { getProducts } from "../../store/products/productSlice";
 
 export default function Builder() {
   const dispatch = useDispatch();
-  const { products } = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -20,9 +18,9 @@ export default function Builder() {
         className="overflow-hidden"
         aria-label="Build your security system"
       >
-        <Accordion steps={steps} products={products} />
+        <Accordion steps={steps} />
       </section>
-      <ReviewPanel products={products} />
+      <ReviewPanel />
     </div>
   );
 }

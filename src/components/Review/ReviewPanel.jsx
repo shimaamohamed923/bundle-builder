@@ -1,29 +1,25 @@
-import React from "react";
+import { useSelector } from "react-redux";
 import {
-  getPreDiscountTotal,
-  getSubtotal,
-  isProductSelected,
-  saveProducts,
-} from "../../utils/productUtils";
+  selectPreDiscountTotal,
+  selectProducts,
+  selectSelectedProductsByCategory,
+  selectSubtotal,
+} from "../../store/products/productSelectors";
+import { saveProducts } from "../../utils/productUtils";
 import ReviewItem from "./ReviewItem";
 import Review from "./Review";
 import { TruckIcon } from "../Icons/UiIcons";
 
-export default function ReviewPanel({ products }) {
-  const selectedProducts = products.filter(isProductSelected);
-  const groupByCat = selectedProducts.reduce((acc, product) => {
-    if (!acc[product.category]) {
-      acc[product.category] = [];
-    }
-    acc[product.category].push(product);
+export default function ReviewPanel() {
+  const products = useSelector(selectProducts);
+  const groupByCat = useSelector(selectSelectedProductsByCategory);
+  const subtotal = useSelector(selectSubtotal);
+  const preDiscountTotal = useSelector(selectPreDiscountTotal);
 
-    return acc;
-  }, {});
-  const subtotal = getSubtotal(selectedProducts);
-  const preDiscountTotal = getPreDiscountTotal(selectedProducts);
   const handleSave = () => {
     saveProducts(products);
   };
+
   return (
     <aside
       className="grid grid-cols-1 gap-x-14 self-start rounded-md bg-[#edf4ff] p-4 sm:p-5 md:grid-cols-2 lg:sticky lg:top-5 xl:grid-cols-1"
@@ -41,7 +37,7 @@ export default function ReviewPanel({ products }) {
           secure.
         </p>
         <div className="mb-3.5 border-t border-slate-300">
-          {Object.entries(groupByCat).map(([category, categoryproducts]) => (
+          {Object.entries(groupByCat).map(([category, categoryProducts]) => (
             <section
               key={category}
               className="border-b border-slate-300 pt-3.5 pb-2.5"
@@ -50,7 +46,7 @@ export default function ReviewPanel({ products }) {
                 {category}
               </h3>
               <div className="flex flex-col gap-y-3">
-                {categoryproducts.map((product) => (
+                {categoryProducts.map((product) => (
                   <ReviewItem key={product.id} product={product} />
                 ))}
               </div>
@@ -64,10 +60,7 @@ export default function ReviewPanel({ products }) {
           <span className="flex-1 text-xs font-medium text-slate-800">
             Fast Shipping
           </span>
-          <span className="flex flex-col">
-            <span className="text-red-c line-through"></span>
-            <span className="text-xs font-semibold text-indigo-700">FREE</span>
-          </span>
+          <span className="text-xs font-semibold text-indigo-700">FREE</span>
         </div>
       </div>
       <Review

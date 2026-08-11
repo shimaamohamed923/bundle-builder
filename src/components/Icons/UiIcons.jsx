@@ -1,71 +1,77 @@
 import React from "react";
 
-export const ChevronDownIcon = () => (
+export const ChevronDownIcon = ({ size = 12, color = "#4E2FD2", ...props }) => (
   <svg
-    width="12"
-    height="12"
+    width={size}
+    height={size}
     viewBox="0 0 12 12"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
       d="M6.40682 9.43039C6.20741 9.70956 5.7925 9.70956 5.59309 9.43038L1.56472 3.79062C1.32834 3.45968 1.5649 3 1.97159 3L10.0284 3C10.4351 3 10.6716 3.45969 10.4353 3.79062L6.40682 9.43039Z"
-      fill="#4E2FD2"
+      fill={color}
     />
   </svg>
 );
 
-export const ChevronUpIcon = () => (
+export const ChevronUpIcon = ({ size = 12, color = "#4E2FD2", ...props }) => (
   <svg
-    width="12"
-    height="12"
+    width={size}
+    height={size}
     viewBox="0 0 12 12"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
       d="M5.59318 2.56961C5.79259 2.29044 6.2075 2.29044 6.40691 2.56962L10.4353 8.20938C10.6717 8.54032 10.4351 9 10.0284 9H1.9716C1.56491 9 1.32835 8.54031 1.56473 8.20938L5.59318 2.56961Z"
-      fill="#4E2FD2"
+      fill={color}
     />
   </svg>
 );
 
-export const PlusIcon = () => (
+export const PlusIcon = ({ size = 8, color = "#525963", ...props }) => (
   <svg
-    width="8"
-    height="8"
+    width={size}
+    height={size}
     viewBox="0 0 8 8"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
       d="M7.33333 3.33333H4.66667V0.666667C4.66667 0.489856 4.59643 0.320286 4.4714 0.195262C4.34638 0.0702379 4.17681 0 4 0C3.82319 0 3.65362 0.0702379 3.5286 0.195262C3.40357 0.320286 3.33333 0.489856 3.33333 0.666667V3.33333H0.666667C0.489856 3.33333 0.320286 3.40357 0.195262 3.5286C0.0702379 3.65362 0 3.82319 0 4C0 4.17681 0.0702379 4.34638 0.195262 4.4714C0.320286 4.59643 0.489856 4.66667 0.666667 4.66667H3.33333V7.33333C3.33333 7.51014 3.40357 7.67971 3.5286 7.80474C3.65362 7.92976 3.82319 8 4 8C4.17681 8 4.34638 7.92976 4.4714 7.80474C4.59643 7.67971 4.66667 7.51014 4.66667 7.33333V4.66667H7.33333C7.51014 4.66667 7.67971 4.59643 7.80474 4.4714C7.92976 4.34638 8 4.17681 8 4C8 3.82319 7.92976 3.65362 7.80474 3.5286C7.67971 3.40357 7.51014 3.33333 7.33333 3.33333Z"
-      fill="#525963"
+      fill={color}
     />
   </svg>
 );
 
-export const MinusIcon = () => (
+export const MinusIcon = ({ size = 8, color = "#525963", ...props }) => (
   <svg
-    width="8"
-    height="10"
+    width={size}
+    height={size * 1.25}
     viewBox="0 0 8 10"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
       d="M7.33333 5.6H0.666667C0.489856 5.6 0.320286 5.51571 0.195262 5.36569C0.0702379 5.21566 0 5.01217 0 4.8C0 4.58783 0.0702379 4.38434 0.195262 4.23431C0.320286 4.08429 0.489856 4 0.666667 4H7.33333C7.51014 4 7.67971 4.08429 7.80474 4.23431C7.92976 4.38434 8 4.58783 8 4.8C8 5.01217 7.92976 5.21566 7.80474 5.36569C7.67971 5.51571 7.51014 5.6 7.33333 5.6Z"
-      fill="#525963"
+      fill={color}
     />
   </svg>
 );
-export const TruckIcon = () => (
+
+export const TruckIcon = ({ size = 41, ...props }) => (
   <svg
-    width="41"
-    height="41"
+    width={size}
+    height={size}
     viewBox="0 0 41 41"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <rect width="41" height="41" rx="5" fill="white" />
     <path
@@ -78,6 +84,7 @@ export const TruckIcon = () => (
     />
   </svg>
 );
+
 const Icons = {
   ChevronDownIcon,
   ChevronUpIcon,
@@ -85,4 +92,5 @@ const Icons = {
   MinusIcon,
   TruckIcon,
 };
+
 export default Icons;
