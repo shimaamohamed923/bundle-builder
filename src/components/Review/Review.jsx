@@ -11,8 +11,6 @@ export default function Review({ preDiscountTotal, subtotal, handleSave }) {
       <div className="flex items-center justify-between gap-2">
         <img
           src={BadgeCheckIcon}
-          width={20}
-          height={20}
           alt=""
           className="text-indigo-700"
         />
