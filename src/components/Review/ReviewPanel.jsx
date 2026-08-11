@@ -55,7 +55,7 @@ export default function ReviewPanel() {
         </div>
         <div className="mb-2.5 flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded bg-white text-teal-600">
-            <TruckIcon size={20} />
+            <TruckIcon />
           </div>
           <span className="flex-1 text-xs font-medium text-slate-800">
             Fast Shipping
