@@ -9,7 +9,9 @@ export default function Price({ price, compareAt }) {
         </div>
       )}
 
-      <div className="price mt-1 text-gray-c-800">{formatCurrency(price)}</div>
+      <div className="price mt-1 text-gray-c-800">
+        {price === 0 ? "Free" : formatCurrency(price)}
+      </div>
     </div>
   );
 }

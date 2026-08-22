@@ -15,9 +15,15 @@ export default function ProductCard({ product }) {
         </span>
       )}
       <div className="flex min-h-full flex-col items-center gap-3 xl:flex-row">
-        <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-lg sm:h-auto sm:w-24">
-          <img src={product.image} alt={product.name} className="w-full" />
-        </div>
+        {product.category == "plan" ? (
+          <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-lg sm:h-auto sm:w-24">
+            <img src={product.image} alt="" className="h-full w-full" />
+          </div>
+        ) : (
+          <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-lg sm:h-auto sm:w-24">
+            <img src={product.image} alt={product.name} className="w-full" />
+          </div>
+        )}
         <div className="flex min-w-0 flex-1 flex-col">
           <h3 className="mb-2 text-base font-semibold text-black-c-900 sm:block">
             {product.name}

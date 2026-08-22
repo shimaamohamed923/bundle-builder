@@ -29,7 +29,10 @@ export const getProductCompareAt = (product) => {
     : null;
 };
 export const getSubtotal = (products) => {
-  return products.reduce(
+  const productsExceptPlan = products.filter(
+    (product) => product.category !== "plan",
+  );
+  return productsExceptPlan.reduce(
     (total, product) => total + getProductPrice(product),
     0,
   );

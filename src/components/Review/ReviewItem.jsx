@@ -1,9 +1,6 @@
 import QuantityStepper from "../Product/QuantityStepper";
 import Price from "../Product/Price";
-import {
-  getProductCompareAt,
-  getProductPrice,
-} from "../../utils/productUtils";
+import { getProductCompareAt, getProductPrice } from "../../utils/productUtils";
 
 export default function ReviewItem({ product }) {
   return (
@@ -16,13 +13,19 @@ export default function ReviewItem({ product }) {
             className="flex items-center justify-between gap-4"
           >
             <div className="flex w-full items-center">
-              <div className="h-9 w-9 shrink-0 overflow-hidden rounded bg-white">
-                <img
-                  src={product.image}
-                  alt=""
-                  className="h-full w-full object-cover mix-blend-multiply"
-                />
-              </div>
+              {product.category == "plan" ? (
+                <div className="h-9 w-9 shrink-0 overflow-hidden">
+                  <img src={product.image} alt="" className="h-full w-full" />
+                </div>
+              ) : (
+                <div className="h-9 w-9 shrink-0 overflow-hidden rounded bg-white">
+                  <img
+                    src={product.image}
+                    alt=""
+                    className="h-full w-full object-cover mix-blend-multiply"
+                  />
+                </div>
+              )}
               <div className="flex flex-1 items-center justify-between">
                 <p className="flex flex-col px-3 leading-3 font-medium text-gray-c-900">
                   <span className="text-[14px]">{product.name}</span>
